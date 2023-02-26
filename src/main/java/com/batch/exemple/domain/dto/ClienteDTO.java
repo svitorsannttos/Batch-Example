@@ -12,8 +12,8 @@ public class ClienteDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String nome;
-    private LocalDateTime dataNascimento;
-    private Character sexo;
-    private BigDecimal renda;
+    private String dataNascimento;
+    private String sexo;
+    private String renda;
 
 }

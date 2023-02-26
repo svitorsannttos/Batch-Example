@@ -1,6 +1,6 @@
 package com.batch.exemple.step;
 
-import com.batch.exemple.domain.model.Cliente;
+import com.batch.exemple.domain.dto.ClienteDTO;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemWriter;
@@ -18,13 +18,13 @@ public class ClienteStep {
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Bean
     public Step clienteStepConfig(
-            MultiResourceItemReader<Cliente> multiClientesReader,
-            ItemWriter clientesWriter) {
+            MultiResourceItemReader<ClienteDTO> multiClienteReaderConfig,
+            ItemWriter clienteWriterConfig) {
         return stepBuilderFactory
                 .get("Cliente-Step-Config")
                 .chunk(2)
-                .reader(multiClientesReader)
-                .writer(clientesWriter)
+                .reader(multiClienteReaderConfig)
+                .writer(clienteWriterConfig)
                 .build();
     }
 
