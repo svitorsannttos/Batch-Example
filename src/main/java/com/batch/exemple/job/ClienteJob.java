@@ -19,7 +19,7 @@ public class ClienteJob {
     @Bean
     public Job clienteJobConfig(Step clienteStepConfig) {
         return jobBuilderFactory
-                .get("Cliente-Job-Config")
+                .get("Cliente-Job")
                 .start(clienteStepConfig)
                 .incrementer(new RunIdIncrementer())
                 .build();

@@ -16,14 +16,11 @@ public class ClienteReader {
     @Value(value = "dados/clientes*.csv")
     private Resource[] resources;
 
-    @Value(value = "dados/clientes")
-    private Resource resource;
-
     @Bean
     public FlatFileItemReader<ClienteDTO> clienteReaderConfig(){
         return new FlatFileItemReaderBuilder<ClienteDTO>()
                 .name("Cliente-Reader")
-                .resource(resource).linesToSkip(1)
+                .linesToSkip(1)
                 .delimited()
                 .delimiter(";")
                 .names(colunas)
@@ -38,6 +35,7 @@ public class ClienteReader {
                 .name("Multiplos-Cliente-Reader")
                 .resources(resources)
                 .delegate(clienteReaderConfig())
+                .setStrict(false)
                 .build();
     }
 

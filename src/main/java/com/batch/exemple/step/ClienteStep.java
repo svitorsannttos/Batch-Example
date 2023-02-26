@@ -21,7 +21,7 @@ public class ClienteStep {
             MultiResourceItemReader<ClienteDTO> multiClienteReaderConfig,
             ItemWriter clienteWriterConfig) {
         return stepBuilderFactory
-                .get("Cliente-Step-Config")
+                .get("Cliente-Step")
                 .chunk(2)
                 .reader(multiClienteReaderConfig)
                 .writer(clienteWriterConfig)
